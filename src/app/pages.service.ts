@@ -3,7 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 import {InterfaceTaskList} from 'src/app/components/models/list.interface'
 import {map} from 'rxjs/operators'
-import { rejects } from 'node:assert';
+
 
 @Injectable({
   providedIn: 'root'
@@ -44,7 +44,7 @@ export class PagesService {
       }catch(err){
         reject(err.message);
       }
-    }
+    })
 
 
   }
