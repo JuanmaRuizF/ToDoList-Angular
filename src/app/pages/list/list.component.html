@@ -10,7 +10,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="table-primary" *ngFor="let item of fakeData">
+            <tr class="table-primary" *ngFor="let item of tasklist$ | async">
                 <th scope="row">{{item.taskName}}</th>
                 <td>{{item.taskDescription}}</td>
                 <td>{{item.taskStatus}}</td>
@@ -18,7 +18,7 @@
                 <td class="bnt-group" role="group">
                     <button type="button" class="btn btn-info m-1" (click)="onGoToSee(item)">Details</button>
                     <button type="button" class="btn btn-success m-1" (click)="onGoToEdit(item)">Edit</button>
-                    <button type="button" class="btn btn-danger m-1" (click)="onGoToDelete(item)">Delete</button>
+                    <button type="button" class="btn btn-danger m-1" (click)="onGoToDelete(item.id)">Delete</button>
                 </td>
             </tr>
         </tbody>

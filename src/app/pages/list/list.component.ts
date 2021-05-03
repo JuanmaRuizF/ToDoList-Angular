@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { PagesService } from 'src/app/pages.service';
 
 @Component({
   selector: 'app-list',
@@ -7,35 +8,15 @@ import { NavigationExtras, Router } from '@angular/router';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-
+  tasklist$ = this.taskSvc.tasks;
   navigationExtras: NavigationExtras = {
     state:{
       value:null
     }
   }
 
-  fakeData = [
-    {
-      taskName : 'tfg',
-      taskDescription: 'acabarlo',
-      taskStatus: 'Pending',
-      taskDate: '19/05/2021'
-    },
-    {
-      taskName : 'aaa',
-      taskDescription: 'bbbbbbb',
-      taskStatus: 'Pending',
-      taskDate: '19/05/2021'
-    },
-    {
-      taskName : 'cccccccccccc',
-      taskDescription: 'ddddddd',
-      taskStatus: 'Pending',
-      taskDate: '19/05/2021'
-    }
-  ]
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private taskSvc: PagesService) { }
 
   ngOnInit(): void {
   }
@@ -50,8 +31,14 @@ export class ListComponent implements OnInit {
     this.router.navigate(['edit'], this.navigationExtras);
   }
 
-  onGoToDelete(item:any):void{
-    alert('Deleted');
+  async onGoToDelete(taskId:string): Promise<void>{
+    try{
+      await this.taskSvc.onDeleteTask(taskId);
+      alert('Deleted');
+    }catch(err){
+      console.log(err);
+    }
+
   }
 
 }
