@@ -1,1 +1,36 @@
-<p>details works!</p>
+<div class="card mt-2">
+    <div class="card-header">
+        Task Details
+    </div>
+
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item">
+                Task:
+                <h5>{{list.taskName}}</h5>
+            </li>
+
+            <li class="list-group-item">
+                Description:
+                <h5>{{list.taskDescription}}</h5>
+            </li>
+
+            <li class="list-group-item">
+                Status:
+                <h5>{{list.taskStatus}}</h5>
+            </li>
+            <li class="list-group-item">
+                Start Date:
+                <h5>{{list.taskStartDate}}</h5>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="btn-group" role="group">
+        <button class="btn btn-outline-warning btn-sm" (click)="onGoToEdit()">Edit</button>
+        <button class="btn btn-outline-danger btn-sm" (click)="onDelete()">Delete</button>
+    </div>
+</div>
+
+<button class="btn btn-secondary btn-md mt-2" (click)="onGoBackToList()">Back to List</button>
