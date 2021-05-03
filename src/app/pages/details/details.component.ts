@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import {InterfaceTaskList} from './../../components/models/list.interface'
 
 @Component({
   selector: 'app-details',
@@ -12,14 +13,17 @@ export class DetailsComponent implements OnInit {
       value:null
     }
   }
-  list:any =  null;
+  list:InterfaceTaskList =  null;
 
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
-    this.list = navigation?.extras?.state;
+    this.list = navigation?.extras?.state?.value;
    }
 
   ngOnInit(): void {
+    if(typeof this.list === 'undefined'){
+      this.router.navigate(['list']);
+    }
   }
 
   onGoToEdit():void{

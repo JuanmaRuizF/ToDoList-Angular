@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
-
+import {InterfaceTaskList} from './../../components/models/list.interface'
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
-  task = null;
+  task: InterfaceTaskList = null;
   taskList: FormGroup;
   constructor(private router: Router, private fb: FormBuilder) {
     const navigation = this.router.getCurrentNavigation();

@@ -7,20 +7,24 @@ import { HeaderComponent } from './components/header/header.component';
 import { HeaderModule } from './components/header/header.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSliderModule} from '@angular/material/slider';
+import {AngularFireModule} from '@angular/fire'
+import {AngularFirestore} from '@angular/fire/firestore';
+import {environment} from './../environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HeaderModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatSliderModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

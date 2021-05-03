@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "daw2-todolist": {
+      "hosting": {
+        "ToDoList-Angular": [
+          "daw2-todolist"
+        ]
+      }
+    }
+  }
+}
