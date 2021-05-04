@@ -1,3 +1,4 @@
+import { isFakeTouchstartFromScreenReader } from '@angular/cdk/a11y';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
@@ -10,18 +11,18 @@ import {InterfaceTaskList} from './../../components/models/list.interface'
   styleUrls: ['./new.component.scss']
 })
 export class NewComponent implements OnInit {
-
+  fecha = new Date();
+  tdate = this.fecha.toLocaleDateString();
   task: InterfaceTaskList = null;
   taskList: FormGroup;
   constructor(private router: Router, private fb: FormBuilder, private taskSvc: PagesService) {
     const navigation = this.router.getCurrentNavigation();
     this.task = navigation?.extras?.state?.value;
     this.initForm();
-
+    console.log(this.tdate)
   }
 
   ngOnInit(): void {
-
     if(typeof this.task === 'undefined'){
       this.router.navigate(['new'])
     }else{
@@ -48,6 +49,8 @@ export class NewComponent implements OnInit {
     this.taskList = this.fb.group({
       taskName: ['', [Validators.required]],
       taskDescription: ['', [Validators.required]],
+      taskStatus: ['Pending'],
+      taskStartDate: [this.tdate]
     });
   }
 }

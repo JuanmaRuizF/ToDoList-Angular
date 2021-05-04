@@ -14,7 +14,7 @@ export class PagesService {
   private taskCollection: AngularFirestoreCollection<InterfaceTaskList>;
   constructor(private readonly afs: AngularFirestore) {
     this.taskCollection = afs.collection<InterfaceTaskList>('tasks');
-    this.getTasks();
+    this.tasks = this.getTasks();
   }
 
   onDeleteTask(taskId:string): Promise<void>{
@@ -31,6 +31,7 @@ export class PagesService {
 
 
   }
+
 
   onSaveTask(task:InterfaceTaskList, taskId:string): Promise<void>{
 
@@ -49,10 +50,11 @@ export class PagesService {
 
   }
 
-  private getTasks(): void{
-    this.tasks = this.taskCollection.snapshotChanges().pipe(
+  getTasks(){
+    return this.taskCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => a.payload.doc.data() as InterfaceTaskList))
     );
+
   }
 
 

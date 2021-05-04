@@ -3,7 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { ListRoutingModule } from './list-routing.module';
 import { ListComponent } from './list.component';
-import {MatSelectModule} from '@angular/material/select';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatSortModule} from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -13,7 +16,10 @@ import {MatSelectModule} from '@angular/material/select';
   imports: [
     CommonModule,
     ListRoutingModule,
-    MatSelectModule
+    MatButtonToggleModule,
+    MatSortModule,
+    MatTableModule,
+    MatRadioModule
   ]
 })
 export class ListModule { }

@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit,  ViewChild} from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { PagesService } from 'src/app/pages.service';
-import {AfterViewInit,  ViewChild} from '@angular/core';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+
+
 
 
 
@@ -13,20 +14,40 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+
+
+
+
+export class ListComponent implements OnInit, AfterViewInit {
+  show=false;
+
+
+  displayedColumns: string[] = ['taskName', 'taskDescription', 'taskStatus', 'taskStartDate', 'Actions'];
+  dataSource = new MatTableDataSource();
+
+  @ViewChild(MatSort) sort: MatSort;
   tasklist$ = this.taskSvc.tasks;
   navigationExtras: NavigationExtras = {
     state:{
       value:null
     }
   }
-
-
   constructor(private router: Router, private taskSvc: PagesService) { }
 
-
   ngOnInit(): void {
+    this.taskSvc.getTasks().subscribe(res=>this.dataSource.data = res);
   }
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+  }
+
+
+  setfalse():void{
+    this.show = !this.show;
+    console.log(this.show);
+  }
+
 
   onGoToSee(item:any):void{
     this.navigationExtras.state.value = item;
