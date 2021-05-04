@@ -36,6 +36,7 @@ export class EditComponent implements OnInit {
       this.taskSvc.onSaveTask(list, listId)
       alert("The task has been edited")
       this.taskList.reset();
+      this.router.navigate(['list']);
     }
   }
   onGoBackToList():void{

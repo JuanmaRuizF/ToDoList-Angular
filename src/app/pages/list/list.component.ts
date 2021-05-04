@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { PagesService } from 'src/app/pages.service';
+import {AfterViewInit,  ViewChild} from '@angular/core';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
+
 
 @Component({
   selector: 'app-list',
@@ -17,6 +23,7 @@ export class ListComponent implements OnInit {
 
 
   constructor(private router: Router, private taskSvc: PagesService) { }
+
 
   ngOnInit(): void {
   }

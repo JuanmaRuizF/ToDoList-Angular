@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import {InterfaceTaskList} from './../../components/models/list.interface'
+import { PagesService } from 'src/app/pages.service';
 
 @Component({
   selector: 'app-details',
@@ -15,7 +16,7 @@ export class DetailsComponent implements OnInit {
   }
   list:InterfaceTaskList =  null;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private taskSvc: PagesService) {
     const navigation = this.router.getCurrentNavigation();
     this.list = navigation?.extras?.state?.value;
    }
@@ -35,7 +36,13 @@ export class DetailsComponent implements OnInit {
     this.router.navigate(['list']);
   }
 
-  onDelete():void{
-    alert('Deleted');
+  async onDelete(): Promise<void>{
+    try{
+      await this.taskSvc.onDeleteTask(this.list.id);
+      alert('Deleted');
+      this.router.navigate(['list']);
+    }catch(err){
+      console.log(err);
+    }
   }
 }
