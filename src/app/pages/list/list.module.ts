@@ -7,7 +7,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 import {MatRadioModule} from '@angular/material/radio';
-
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatButtonToggleModule,
     MatSortModule,
     MatTableModule,
-    MatRadioModule
+    MatRadioModule,
+    MatIconModule
   ]
 })
 export class ListModule { }

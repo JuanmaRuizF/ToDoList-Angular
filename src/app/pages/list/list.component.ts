@@ -65,6 +65,7 @@ export class ListComponent implements OnInit, AfterViewInit {
     value.taskStatus = event.value;
     this.taskSvc.onSaveTask(value, value.id)
     console.log(value.taskStatus)
+    this.show = !this.show;
   }
 
   async onGoToDelete(taskId:string): Promise<void>{

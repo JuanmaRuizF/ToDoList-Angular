@@ -11,7 +11,8 @@ import {InterfaceTaskList} from './../../components/models/list.interface'
 export class EditComponent implements OnInit {
   task: InterfaceTaskList = null;
   taskList: FormGroup;
-  constructor(private router: Router, private fb: FormBuilder, private taskSvc: PagesService) {
+
+  constructor(private router: Router, private fb: FormBuilder, public taskSvc: PagesService) {
     const navigation = this.router.getCurrentNavigation();
     this.task = navigation?.extras?.state?.value;
     this.initForm();
@@ -25,11 +26,15 @@ export class EditComponent implements OnInit {
     }else{
       this.taskList.patchValue(this.task);
     }
+
+  }
+  changeStatus(event:any, value:InterfaceTaskList){
+    value.taskStatus = event.value;
+    this.taskSvc.onSaveTask(value, value.id)
   }
 
   onSave():void{
     console.log('Saved', this.taskList.value)
-
     if(this.taskList.valid){
       const list = this.taskList.value;
       const listId = this.task?.id|| null;
