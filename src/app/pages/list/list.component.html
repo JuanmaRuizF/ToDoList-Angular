@@ -54,7 +54,7 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
             <td mat-cell *matCellDef="let element">
                 <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-                    <mat-button-toggle value="bold" (click)="setfalse()">{{element.taskStatus}}</mat-button-toggle>
+                    <mat-button-toggle value="bold" (click)="editStatus(element)">{{element.taskStatus}}</mat-button-toggle>
                 </mat-button-toggle-group>
 
             </td>
@@ -70,7 +70,7 @@
         <ng-container matColumnDef="Actions">
             <th mat-header-cell *matHeaderCellDef> Actions </th>
             <td mat-cell *matCellDef="let element">
-
+                <mat-icon>assignment</mat-icon>
                 <button type="button" class="btn btn-info m-1" (click)="onGoToSee(element)">Details</button>
                 <button type="button" class="btn btn-success m-1" (click)="onGoToEdit(element)">Edit</button>
                 <button type="button" class="btn btn-danger m-1" (click)="onGoToDelete(element.id)">Delete</button>
@@ -82,9 +82,10 @@
     </table>
 
 
-    <mat-radio-group aria-label="Select an option" *ngIf="show">
-        <mat-radio-button value="1">Pending</mat-radio-button>
-        <mat-radio-button value="2">In Progress</mat-radio-button>
-        <mat-radio-button value="2">Finished</mat-radio-button>
+    <mat-radio-group aria-label="Select an option" name="taskStatus" *ngIf="show" [value]="this.taskSvc.selected.taskStatus">
+        <mat-radio-button value="Pending" (change)="changeStatus($event,this.taskSvc.selected)">Pending</mat-radio-button>
+        <mat-radio-button value="In Progress" (change)="changeStatus($event,this.taskSvc.selected)">In Progress</mat-radio-button>
+        <mat-radio-button value="Finished" (change)="changeStatus($event,this.taskSvc.selected)">Finished</mat-radio-button>
     </mat-radio-group>
+
 </div>

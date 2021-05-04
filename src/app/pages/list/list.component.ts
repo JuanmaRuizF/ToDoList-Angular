@@ -4,7 +4,9 @@ import { PagesService } from 'src/app/pages.service';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import { NgModule } from '@angular/core'
+import {InterfaceTaskList}  from '../../components/models/list.interface'
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -32,7 +34,7 @@ export class ListComponent implements OnInit, AfterViewInit {
       value:null
     }
   }
-  constructor(private router: Router, private taskSvc: PagesService) { }
+  constructor(private router: Router, public taskSvc: PagesService) { }
 
   ngOnInit(): void {
     this.taskSvc.getTasks().subscribe(res=>this.dataSource.data = res);
@@ -59,6 +61,12 @@ export class ListComponent implements OnInit, AfterViewInit {
     this.router.navigate(['edit'], this.navigationExtras);
   }
 
+  changeStatus(event:any, value:InterfaceTaskList){
+    value.taskStatus = event.value;
+    this.taskSvc.onSaveTask(value, value.id)
+    console.log(value.taskStatus)
+  }
+
   async onGoToDelete(taskId:string): Promise<void>{
     try{
       await this.taskSvc.onDeleteTask(taskId);
@@ -68,5 +76,11 @@ export class ListComponent implements OnInit, AfterViewInit {
     }
 
   }
+
+  public editStatus(element){
+    this.show = !this.show;
+    this.taskSvc.selected = element;
+  }
+
 
 }

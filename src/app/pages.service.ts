@@ -17,6 +17,14 @@ export class PagesService {
     this.tasks = this.getTasks();
   }
 
+  public selected = {
+    id: null,
+    taskName:"",
+    taskDescription:"",
+    taskStatus:"",
+    taskStartDate:""
+  }
+
   onDeleteTask(taskId:string): Promise<void>{
     return new Promise (async(resolve,reject)=>{
       try{
