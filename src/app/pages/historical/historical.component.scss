@@ -1,0 +1,29 @@
+table {
+    position: center;
+    width: 80%;
+    background-color: beige;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+td {
+    padding: 5px;
+    background-color: beige;
+}
+
+.td-status {
+    background-color: beige;
+}
+
+.containerStatus {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 1000px) {
+    table {
+        width: 100%;
+        background-color: beige;
+    }
+}
