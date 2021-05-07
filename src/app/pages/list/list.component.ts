@@ -37,7 +37,7 @@ export class ListComponent implements OnInit, AfterViewInit {
   constructor(private router: Router, public taskSvc: PagesService) { }
 
   ngOnInit(): void {
-    this.taskSvc.getTasks().subscribe(res=>this.dataSource.data = res);
+    this.taskSvc.taskQuery(false).subscribe(res=>this.dataSource.data = res);
   }
 
   ngAfterViewInit() {
@@ -57,6 +57,7 @@ export class ListComponent implements OnInit, AfterViewInit {
   }
 
   onGoToEdit(item:any):void{
+    console.log(item);
     this.navigationExtras.state.value = item;
     this.router.navigate(['edit'], this.navigationExtras);
   }

@@ -1,7 +1,20 @@
 table {
-    width: inherit;
+    position: inherit;
+    width: 80%;
+    background-color: beige;
 }
 
 td {
     padding: 5px;
+    background-color: beige;
+}
+
+.td-status {
+    background-color: beige;
+}
+
+.containerStatus {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
 }

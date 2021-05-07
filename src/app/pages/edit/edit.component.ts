@@ -44,6 +44,7 @@ export class EditComponent implements OnInit {
       this.router.navigate(['list']);
     }
   }
+
   onGoBackToList():void{
     this.router.navigate(['list']);
   }
@@ -51,6 +52,9 @@ export class EditComponent implements OnInit {
     this.taskList = this.fb.group({
       taskName: ['', [Validators.required]],
       taskDescription: ['', [Validators.required]],
+      taskStartDate: [this.task.taskStartDate],
+      taskStatus: [this.task.taskStatus],
+      id: [this.task.id]
     });
   }
 }
