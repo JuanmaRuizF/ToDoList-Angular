@@ -1,7 +1,9 @@
 table {
-    position: inherit;
+    position: center;
     width: 80%;
     background-color: beige;
+    margin: 0 auto;
+    margin-top: 50px;
 }
 
 td {
@@ -17,4 +19,11 @@ td {
     margin-top: 50px;
     display: flex;
     justify-content: center;
+}
+
+@media (max-width: 1000px) {
+    table {
+        width: 100%;
+        background-color: beige;
+    }
 }

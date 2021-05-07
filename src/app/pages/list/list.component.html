@@ -66,9 +66,9 @@
         <td mat-cell *matCellDef="let element"> {{element.taskStartDate}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="Actions">
+    <ng-container matColumnDef="Actions" class="td-status">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
-        <td mat-cell *matCellDef="let element" class="td-status">
+        <td mat-cell *matCellDef="let element">
             <mat-icon type="button" (click)="onGoToSee(element)">info</mat-icon>
             <mat-icon type="button" (click)="onGoToEdit(element) ">edit</mat-icon>
             <mat-icon type="button" (click)="onGoToDelete(element.id) ">delete</mat-icon>
