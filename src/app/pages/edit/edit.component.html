@@ -14,7 +14,7 @@
         <mat-radio-group aria-label="Select an option " name="taskStatus " [value]="this.taskSvc.selected.taskStatus ">
             <mat-radio-button value="Pending " (change)="changeStatus($event,this.taskSvc.selected) ">Pending</mat-radio-button>
             <mat-radio-button value="In Process " (change)="changeStatus($event,this.taskSvc.selected) ">In Process</mat-radio-button>
-            <mat-radio-button value="Finished " (change)="changeStatus($event,this.taskSvc.selected) ">Finished</mat-radio-button>
+            <mat-radio-button value="Finished" (change)="changeStatus($event,this.taskSvc.selected) ">Finished</mat-radio-button>
         </mat-radio-group>
     </div>
     <button type="submit" class="btn bg-dark btn-block text-light">Save</button>
