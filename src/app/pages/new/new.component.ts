@@ -39,6 +39,7 @@ export class NewComponent implements OnInit {
       this.taskSvc.onSaveTask(list, listId)
       alert("The task has been added")
       this.taskList.reset();
+      this.router.navigate(['list']);
     }
   }
 
