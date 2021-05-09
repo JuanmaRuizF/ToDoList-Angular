@@ -63,6 +63,7 @@ export class ListComponent implements OnInit, AfterViewInit {
   }
 
   changeStatus(event:any, value:InterfaceTaskList){
+    console.log(value)
     value.taskStatus = event.value;
     this.taskSvc.onSaveTask(value, value.id)
     console.log(value.taskStatus)
@@ -80,6 +81,7 @@ export class ListComponent implements OnInit, AfterViewInit {
   }
 
   public editStatus(element){
+    console.log(this.taskSvc.selected)
     this.show = !this.show;
     this.taskSvc.selected = element;
   }

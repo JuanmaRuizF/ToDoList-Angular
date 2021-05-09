@@ -3,17 +3,17 @@
     <div class="form-row">
 
         <div class="form-group col-md-6">
-            <input type="text" class="form-control" placeholder="Task Name" formControlName="taskName">
+            <input type="text" class="form-control" placeholder="Task Name" formControlName="taskName" [(ngModel)]="task.taskName">
         </div>
 
         <div class="form-group col-md-6">
-            <input type="text" class="form-control" placeholder="Task Description" formControlName="taskDescription">
+            <input type="text" class="form-control" placeholder="Task Description" formControlName="taskDescription" [(ngModel)]="task.taskDescription">
         </div>
 
 
-        <mat-radio-group aria-label="Select an option " name="taskStatus " [value]="this.taskSvc.selected.taskStatus ">
-            <mat-radio-button value="Pending " (change)="changeStatus($event,this.taskSvc.selected) ">Pending</mat-radio-button>
-            <mat-radio-button value="In Process " (change)="changeStatus($event,this.taskSvc.selected) ">In Process</mat-radio-button>
+        <mat-radio-group aria-label="Select an option " name="taskStatus " [value]="this.taskList.value.taskStatus">
+            <mat-radio-button value="Pending" (change)="changeStatus($event,this.taskSvc.selected) ">Pending</mat-radio-button>
+            <mat-radio-button value="In Process" (change)="changeStatus($event,this.taskSvc.selected) ">In Process</mat-radio-button>
             <mat-radio-button value="Finished" (change)="changeStatus($event,this.taskSvc.selected) ">Finished</mat-radio-button>
         </mat-radio-group>
     </div>

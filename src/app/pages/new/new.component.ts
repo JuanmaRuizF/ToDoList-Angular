@@ -35,6 +35,7 @@ export class NewComponent implements OnInit {
 
     if(this.taskList.valid){
       const list = this.taskList.value;
+      console.log(list)
       const listId = this.task?.id|| null;
       this.taskSvc.onSaveTask(list, listId)
       alert("The task has been added")
