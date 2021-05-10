@@ -20,10 +20,20 @@
 
     </ng-container>
 
+
+
     <!-- Symbol Column -->
     <ng-container matColumnDef="taskStartDate">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </th>
         <td mat-cell *matCellDef="let element"> {{element.taskStartDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Actions" class="td-status">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-icon type="button" (click)="onGoToDelete(element.id) " class="deleteIcon">delete</mat-icon>
+
+        </td>
     </ng-container>
 
 

@@ -16,7 +16,7 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class HistoricalComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['taskName', 'taskDescription', 'taskStatus', 'taskStartDate'];
+  displayedColumns: string[] = ['taskName', 'taskDescription', 'taskStatus', 'taskStartDate', 'Actions'];
   dataSource = new MatTableDataSource();
 
   @ViewChild(MatSort) sort: MatSort;
@@ -36,4 +36,15 @@ export class HistoricalComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+
+
+  async onGoToDelete(taskId:string): Promise<void>{
+    try{
+      await this.taskSvc.onDeleteTask(taskId);
+      alert('Deleted');
+    }catch(err){
+      console.log(err);
+    }
+
+  }
 }
