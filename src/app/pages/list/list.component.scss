@@ -9,6 +9,7 @@ table {
 td {
     padding: 5px;
     background-color: beige;
+    word-break: break-all;
 }
 
 .td-status {
@@ -25,6 +26,9 @@ td {
     table {
         width: 100%;
         background-color: beige;
+    }
+    td {
+        word-break: break-all;
     }
 }
 
