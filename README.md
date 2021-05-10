@@ -16,10 +16,10 @@ Se utiliza Firebase para el hosting y para el almacenamiento de las tareas.
 
 # Visualizar aplicación - Local
 
-1. Ejecutar el siguiente comando en la cmd en local: *git clone https://github.com/JuanmaRuizF/ToDoList-Angular* 
-2. Navegar hacia la carpeta creada (*cd ToDoList-Angular*)
-3. Abrir el proyecto (Para Visual Studio Code ejecutar *code .*)
-4. Ejecutar el comando *ng serve* dentro del directorio del proyecto
+1. Ejecutar el siguiente comando en la cmd en local: `git clone https://github.com/JuanmaRuizF/ToDoList-Angular`
+2. Navegar hacia la carpeta creada (`cd ToDoList-Angular`)
+3. Abrir el proyecto (Para Visual Studio Code ejecutar `code .`)
+4. Ejecutar el comando `ng serve` dentro del directorio del proyecto
 5. Acceder en el navegador a http://localhost:4200/
 
 
