@@ -50,7 +50,7 @@ export class NewComponent implements OnInit {
   private initForm():void{
     this.taskList = this.fb.group({
       taskName: ['', [Validators.required]],
-      taskDescription: ['', [Validators.required]],
+      taskDescription: ['', ],
       taskStatus: ['Pending'],
       taskStartDate: [this.tdate]
     });
