@@ -9,8 +9,8 @@ El proyecto está realizado con Angular CLI versión 11.2.11
 
 # Visualizar aplicación - Servidor hosting
 
-[Enlace 1](https://daw2-todolist.web.app/)
-[Enlace 2](https://daw2-todolist.firebaseapp.com/)
+### [Enlace 1](https://daw2-todolist.web.app/)
+### [Enlace 2](https://daw2-todolist.firebaseapp.com/)
 
 Se utiliza Firebase para el hosting y para el almacenamiento de las tareas. 
 
