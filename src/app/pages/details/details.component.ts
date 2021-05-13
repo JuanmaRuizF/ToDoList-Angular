@@ -22,8 +22,10 @@ export class DetailsComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    console.log(this.list.taskDueDate)
     if(typeof this.list === 'undefined'){
       this.router.navigate(['list']);
+
     }
   }
 

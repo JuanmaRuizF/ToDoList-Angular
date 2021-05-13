@@ -15,6 +15,7 @@ export class EditComponent implements OnInit {
     taskDescription: "",
     taskStartDate:"" ,
     taskStatus: "",
+    taskDueDate: "",
   };
   taskList: FormGroup;
 
@@ -34,6 +35,7 @@ export class EditComponent implements OnInit {
     if(typeof this.task === 'undefined'){
       this.router.navigate(['new'])
     }else{
+      console.log(this.taskList.patchValue(this.task));
       this.taskList.patchValue(this.task);
     }
 
@@ -60,6 +62,24 @@ export class EditComponent implements OnInit {
       //   id: [this.task.id]
       // });
       const list = this.task;
+
+      var timestamp = parseInt(this.taskList.value.taskDueDate.getTime());
+      console.log(timestamp)
+      var timestamp1 = Number(timestamp) + 3200;
+      console.log(timestamp1);
+
+      var date = new Date(timestamp1).toLocaleDateString();
+
+      console.log(date);
+      list.taskDueDate = date;
+
+      console.log(list.taskDueDate);
+      // list.taskDueDate = JSON.stringify(list.taskDueDate);
+      // console.log(list.taskDueDate)
+      // list.taskDueDate = this.task.taskDueDate.substring(1,list.taskDueDate.indexOf('T'));
+
+
+      console.log(list);
       const listId = this.task.id;
       this.taskSvc.onSaveTask(list, listId)
       alert("The task has been edited")
@@ -78,7 +98,9 @@ export class EditComponent implements OnInit {
       taskDescription: ['', [Validators.required]],
       taskStartDate: [this.task.taskStartDate],
       taskStatus: [this.task.taskStatus],
-      id: [this.task.id]
+      id: [this.task.id],
+      // taskDueDate: [this.task.taskDueDate]
+      taskDueDate: ['']
     });
 
     console.log(this.taskList)

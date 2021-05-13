@@ -10,6 +10,13 @@
             <input type="text" class="form-control" placeholder="Task Description" formControlName="taskDescription">
         </div>
 
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="taskDueDate" formControlName="taskDueDate">
+            <mat-datepicker-toggle matSuffix [for]="taskDueDate"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #taskDueDate></mat-datepicker>
+        </mat-form-field>
+
     </div>
     <button mat-raised-button color="primary" class="SaveButton" type="submit">Save</button>
 </form>
