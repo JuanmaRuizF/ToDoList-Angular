@@ -94,8 +94,8 @@ export class EditComponent implements OnInit {
   }
   private initForm():void{
     this.taskList = this.fb.group({
-      taskName: ['', [Validators.required]],
-      taskDescription: ['', [Validators.required]],
+      taskName: ['' ],
+      taskDescription: [''],
       taskStartDate: [this.task.taskStartDate],
       taskStatus: [this.task.taskStatus],
       id: [this.task.id],

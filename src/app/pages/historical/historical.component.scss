@@ -1,18 +1,18 @@
 table {
     position: center;
     width: 80%;
-    background-color: beige;
+    background-color: white;
     margin: 0 auto;
     margin-top: 50px;
 }
 
 td {
     padding: 5px;
-    background-color: beige;
+    background-color: white;
 }
 
 .td-status {
-    background-color: beige;
+    background-color: white;
 }
 
 .containerStatus {
@@ -24,10 +24,11 @@ td {
 @media (max-width: 1000px) {
     table {
         width: 100%;
-        background-color: beige;
+        background-color: white;
     }
     td {
-        font-size: smaller;
+        font-size: xx-small;
+        padding-right: 2%;
         // word-break: break-all;
     }
 }
