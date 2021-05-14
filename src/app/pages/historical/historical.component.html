@@ -29,6 +29,11 @@
         <td mat-cell *matCellDef="let element"> {{element.taskStartDate}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="taskDueDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Due Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.taskDueDate}} </td>
+    </ng-container>
+
     <ng-container matColumnDef="Actions" class="td-status">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let element">

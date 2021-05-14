@@ -9,13 +9,20 @@
         <div class="form-group col-md-6">
             <input type="text" class="form-control" placeholder="Task Description" formControlName="taskDescription">
         </div>
+        <div class="dueDateContainer">
+            <div class="form-group col-md-12" id="chooseDate">
 
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="taskDueDate" formControlName="taskDueDate">
-            <mat-datepicker-toggle matSuffix [for]="taskDueDate"></mat-datepicker-toggle>
-            <mat-datepicker touchUi #taskDueDate></mat-datepicker>
-        </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="taskDueDate" formControlName="taskDueDate">
+                    <mat-datepicker-toggle matSuffix [for]="taskDueDate"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #taskDueDate></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+
+        </div>
+
 
     </div>
     <button mat-raised-button color="primary" class="SaveButton" type="submit">Save</button>

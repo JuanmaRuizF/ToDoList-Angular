@@ -2,28 +2,43 @@
 <form class='mt-3' (ngSubmit)="onSave()" [formGroup]="taskList">
     <div class="form-row">
 
-        <div class="form-group col-md-6">
-            <input type="text" class="form-control" placeholder="Task Name" formControlName="taskName" [(ngModel)]="task.taskName">
+        <div class="form-group col-md-12">
+            <input type="text" class="form-control" placeholder="Task Name" formControlName="taskName" id="taskname" [(ngModel)]="task.taskName">
         </div>
 
-        <div class="form-group col-md-6">
-            <input type="text" class="form-control" placeholder="Task Description" formControlName="taskDescription" [(ngModel)]="task.taskDescription">
+        <div class="form-group col-md-12">
+            <input type="text" class="form-control" placeholder="Task Description" id="taskdescription" formControlName="taskDescription" [(ngModel)]="task.taskDescription">
         </div>
 
-        <mat-radio-group aria-label="Select an option " name="taskStatus " [value]="this.taskList.value.taskStatus">
-            <mat-radio-button value="Pending" (change)="changeStatus($event,this.taskSvc.selected) ">Pending</mat-radio-button>&nbsp;
-            <mat-radio-button value="In Process" (change)="changeStatus($event,this.taskSvc.selected) ">In Process</mat-radio-button>&nbsp;
-            <mat-radio-button value="Finished" (change)="changeStatus($event,this.taskSvc.selected) ">Finished</mat-radio-button>&nbsp;
-        </mat-radio-group>
+        <div class="form-group col-md-12">
+            <div class="radioButtonsContainer">
+                <mat-radio-group aria-label="Select an option " name="taskStatus " [value]="this.taskList.value.taskStatus" class="radioButtons">
+                    <div class="radioOptions">
+                        <mat-radio-button value="Pending" (change)="changeStatus($event,this.taskSvc.selected) ">Pending</mat-radio-button>&nbsp;
+                        <mat-radio-button value="In Process" (change)="changeStatus($event,this.taskSvc.selected) ">In Process</mat-radio-button>&nbsp;
+                        <mat-radio-button value="Finished" (change)="changeStatus($event,this.taskSvc.selected) ">Finished</mat-radio-button>&nbsp;
+                    </div>
 
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Due Date</mat-label>
-            <input matInput [matDatepicker]="taskDueDate" [value]="task.taskDueDate" [(ngModel)]="task.taskDueDate" formControlName="taskDueDate">
-            <mat-datepicker-toggle matSuffix [for]="taskDueDate"></mat-datepicker-toggle>
-            <mat-datepicker touchUi #taskDueDate></mat-datepicker>
-        </mat-form-field>
+                </mat-radio-group>
+            </div>
+        </div>
+
+        <div class="form-group col-md-12" id="dueDate">
+            <div class="dueDateContainer">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Due Date</mat-label>
+                    <div class="dateOptions">
+                        <input matInput [matDatepicker]="taskDueDate" [value]="task.taskDueDate" [(ngModel)]="task.taskDueDate" formControlName="taskDueDate">
+                        <mat-datepicker-toggle matSuffix [for]="taskDueDate"></mat-datepicker-toggle>
+                        <mat-datepicker touchUi #taskDueDate></mat-datepicker>
+                    </div>
+
+                </mat-form-field>
+            </div>
+        </div>
+
 
     </div>
-    <button type="submit" class="btn bg-dark btn-block text-light">Save</button>
+    <button type="submit" class="btn bg-dark btn-block text-light" id="saveButton">Save</button>
 </form>
-<button class="btn btn-secondary btn-md mt-2" (click)="onGoBackToList()">Back to List</button>
+<button class="btn btn-secondary btn-md mt-2" id="backtoListBTN" (click)="onGoBackToList()">Back to List</button>

@@ -16,7 +16,7 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class HistoricalComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['taskName', 'taskDescription', 'taskStatus', 'taskStartDate', 'Actions'];
+  displayedColumns: string[] = ['taskName', 'taskDescription', 'taskStatus', 'taskStartDate', 'taskDueDate', 'Actions'];
   dataSource = new MatTableDataSource();
 
   @ViewChild(MatSort) sort: MatSort;

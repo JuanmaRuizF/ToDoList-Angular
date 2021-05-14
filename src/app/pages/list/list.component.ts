@@ -24,7 +24,7 @@ export class ListComponent implements OnInit, AfterViewInit {
   show=false;
 
 
-  displayedColumns: string[] = ['taskName', 'taskDescription', 'taskStatus', 'taskStartDate', 'Actions'];
+  displayedColumns: string[] = ['taskName', 'taskStatus', 'taskStartDate',  'taskDueDate', 'Actions'];
   dataSource = new MatTableDataSource();
 
   @ViewChild(MatSort) sort: MatSort;

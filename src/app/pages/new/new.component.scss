@@ -1,20 +1,35 @@
 .SaveButton {
-    width: 98%;
+    width: 96%;
     background-color: #303030;
-    margin-left: 1%;
-    margin-right: 1%;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 .backToListButton {
     margin-top: 15px;
     background-color: #303030;
-    margin-left: 1%;
+    margin-left: 2%;
 }
 
 .form-control {
-    width: 98%;
-    margin-left: 1%;
-    margin-right: 1%;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+#chooseDate {
+    // width: 90%;
+    // margin: 0 auto;
+    // align-items: center;
+    width: 94%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.example-full-width {
+    margin-right: 5%;
+    background-color: white;
+    color: black;
 }
 
 @media (max-width: 1000px) {

@@ -26,6 +26,10 @@ td {
         width: 100%;
         background-color: beige;
     }
+    td {
+        font-size: smaller;
+        // word-break: break-all;
+    }
 }
 
 .deleteIcon {

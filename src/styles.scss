@@ -1,6 +1,14 @@
 @import "~bootswatch/dist/darkly/variables";
 @import "~bootstrap/scss/bootstrap";
 @import "~bootswatch/dist/darkly/bootswatch";
+html,
+body {
+    height: 100%;
+    background: radial-gradient( ellipse at left bottom, rgb(16, 16, 19) 0%, rgba(31, 36, 53, 0.9) 59%, rgba(13, 25, 49, 0.9) 100%);
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.8);
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

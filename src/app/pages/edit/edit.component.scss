@@ -1,0 +1,35 @@
+.radioButtonsContainer,
+.dueDateContainer {
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+#saveButton {
+    width: 90%;
+    margin-left: 5%;
+}
+
+#backtoListBTN {
+    margin: 5%;
+}
+
+.example-full-width {
+    margin-right: 5%;
+    background-color: white;
+    color: black;
+}
+
+#taskname,
+#taskdescription {
+    width: 90%;
+    margin: 0 auto;
+}
+
+@media (max-width: 1000px) {
+    .radioOptions {
+        width: 90%;
+        margin: 0 auto;
+        align-items: center;
+    }
+}
