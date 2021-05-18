@@ -1,8 +1,8 @@
 # ToDoListAngular - Introducción general
 
-El proyecto consiste en una ToDo List en la que cualquiera de las tareas se puede encontrar en el estado "Pending", "In Process" o "Finished". Para crear una tarea, ir al apartado de "Create Task". Una vez allí, es obligatorio proporcionar un nombre a la tarea. La descripción no es obligatoria, la fecha se genera automáticamente y la tarea se crea en el estado "Pending". 
+El proyecto consiste en una ToDo List en la que cualquiera de las tareas se puede encontrar en el estado "Pending", "In Process" o "Finished". Para crear una tarea, ir al apartado de "Create Task". Una vez allí, es obligatorio proporcionar un nombre a la tarea y la fecha en la que se pretende tener la tarea hecha (due date). La descripción no es obligatoria, la fecha se genera automáticamente (start date) y la tarea se crea en el estado "Pending". 
 
-Para cambiar el estado de las tareas de forma rápida, se puede hacer click en el "Status" de la tarea en la que aparecerá un pequeño menú para cambiar el estado. Si se desea cambiar otros campos, se dispone de la opción de editar, además de la de ver detalles y eliminar cada tarea. Finalmente, hay un historical en el que se muestra el listado de tareas que han sido terminadas. 
+Para cambiar el estado de las tareas de forma rápida, se puede hacer click en el "Status" de la tarea en la que aparecerá un pequeño menú para cambiar el estado. Si se desea cambiar otros campos, se dispone de la opción de editar, además de la de ver detalles y eliminar cada tarea. Al editar hay que especificar nuevamente la fecha a la que se pretende tener la tarea realizada. Finalmente, hay un historical en el que se muestra el listado de tareas que han sido terminadas. 
 
 El proyecto está realizado con Angular CLI versión 11.2.11
 
