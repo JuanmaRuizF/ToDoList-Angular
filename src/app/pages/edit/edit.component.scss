@@ -1,8 +1,10 @@
 .radioButtonsContainer,
-.dueDateContainer {
+.dueDateContainer,
+#mt-2 {
     width: 90%;
     margin: 0 auto;
     align-items: center;
+    margin-bottom: 1%;
 }
 
 #saveButton {
@@ -21,9 +23,15 @@
 }
 
 #taskname,
-#taskdescription {
+#taskdescription,
+#taskDueDate,
+#taskDueDateName {
     width: 90%;
     margin: 0 auto;
+}
+
+#edittasktitle {
+    font-size: xx-large;
 }
 
 @media (max-width: 1000px) {
@@ -31,5 +39,8 @@
         width: 90%;
         margin: 0 auto;
         align-items: center;
+    }
+    .dueDateContainer {
+        margin-left: 23%;
     }
 }

@@ -9,6 +9,7 @@ import {InterfaceTaskList} from './../../components/models/list.interface'
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
+
   task: InterfaceTaskList = {
     id: "",
     taskName: "",
@@ -19,13 +20,13 @@ export class EditComponent implements OnInit {
   };
   taskList: FormGroup;
 
-
+  fechavieja;
 
   constructor(private router: Router, private fb: FormBuilder, public taskSvc: PagesService) {
     const navigation = this.router.getCurrentNavigation();
     this.task = navigation?.extras?.state?.value;
 
-    console.log(this.task)
+    // console.log(this.task)
     this.initForm();
 
   }
@@ -35,17 +36,29 @@ export class EditComponent implements OnInit {
     if(typeof this.task === 'undefined'){
       this.router.navigate(['new'])
     }else{
-      console.log(this.taskList.patchValue(this.task));
+      this.fechavieja = this.task.taskDueDate;
+      var dateObject = new Date(this.task.taskDueDate);
+      var dateParts = this.task.taskDueDate.split("/");
+
+
+      // month is 0-based, that's why we need dataParts[1] - 1
+      var datee = dateParts[2] + "/" + dateParts[1] + "/" + dateParts[0];
+
+      var dateObject = new Date(datee);
+
+      // this.task.taskDueDate = dateObject.toString();
+      // console.log(dateObject)
+      console.log(this.task);
       this.taskList.patchValue(this.task);
     }
 
   }
   changeStatus(event:any, value:InterfaceTaskList){
-    console.log("AAAAAAAAAAAAAAA")
-    console.log({event});
+    // console.log("AAAAAAAAAAAAAAA")
+    // console.log({event});
 
     this.task.taskStatus = event.value;
-    console.log(this.task);
+    // console.log(event.value);
 
     this.taskSvc.onSaveTask(this.task, this.task.id)
   }
@@ -62,7 +75,6 @@ export class EditComponent implements OnInit {
       //   id: [this.task.id]
       // });
       const list = this.task;
-
       var timestamp = parseInt(this.taskList.value.taskDueDate.getTime());
       console.log(timestamp)
       var timestamp1 = Number(timestamp) + 3200;
@@ -103,6 +115,6 @@ export class EditComponent implements OnInit {
       taskDueDate: ['']
     });
 
-    console.log(this.taskList)
+    // console.log(this.taskList)
   }
 }
