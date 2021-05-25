@@ -17,6 +17,7 @@ export class EditComponent implements OnInit {
     taskStartDate:"" ,
     taskStatus: "",
     taskDueDate: "",
+    datetimeDueDate: ""
   };
   taskList: FormGroup;
 
@@ -66,14 +67,6 @@ export class EditComponent implements OnInit {
   onSave():void{
     if(this.taskList.valid){
 
-      // console.log(this.task)
-      // this.taskList = this.fb.group({
-      //   taskName: [this.task.taskName],
-      //   taskDescription: [this.task.taskDescription],
-      //   taskStartDate: [this.task.taskStartDate],
-      //   taskStatus: [this.taskSvc.selected.taskStatus],
-      //   id: [this.task.id]
-      // });
       const list = this.task;
       var timestamp = parseInt(this.taskList.value.taskDueDate.getTime());
       console.log(timestamp)
@@ -84,12 +77,8 @@ export class EditComponent implements OnInit {
 
       console.log(date);
       list.taskDueDate = date;
-
+      list.datetimeDueDate = timestamp1;
       console.log(list.taskDueDate);
-      // list.taskDueDate = JSON.stringify(list.taskDueDate);
-      // console.log(list.taskDueDate)
-      // list.taskDueDate = this.task.taskDueDate.substring(1,list.taskDueDate.indexOf('T'));
-
 
       console.log(list);
       const listId = this.task.id;
@@ -98,6 +87,33 @@ export class EditComponent implements OnInit {
       this.taskList.reset();
       this.router.navigate(['list']);
 
+    }else{
+
+      const list = this.task;
+      // console.log(list.datetimeDueDate)
+      var date = new Date(list.datetimeDueDate).toLocaleDateString();
+
+      // console.log(date);
+      list.taskDueDate = date;
+
+      var dateParts = this.task.taskDueDate.split("/");
+
+      var mesbien = parseInt(dateParts[1]) - 1
+      var milliseconds = new Date(parseInt(dateParts[2]), mesbien, parseInt(dateParts[0])).getTime();
+
+      list.datetimeDueDate = milliseconds;
+
+      var date = new Date(list.datetimeDueDate).toLocaleDateString();
+
+      list.taskDueDate = date;
+      // console.log(list.taskDueDate);
+
+      console.log(list);
+      const listId = this.task.id;
+      this.taskSvc.onSaveTask(list, listId)
+      alert("The task has been edited")
+      this.taskList.reset();
+      this.router.navigate(['list']);
     }
   }
 
@@ -112,7 +128,8 @@ export class EditComponent implements OnInit {
       taskStatus: [this.task.taskStatus],
       id: [this.task.id],
       // taskDueDate: [this.task.taskDueDate]
-      taskDueDate: ['']
+      taskDueDate: [''],
+      datetimeDueDate:['']
     });
 
     // console.log(this.taskList)

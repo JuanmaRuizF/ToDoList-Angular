@@ -5,4 +5,5 @@ export interface InterfaceTaskList{
   taskStatus:string;
   taskStartDate:string;
   taskDueDate:string;
+  datetimeDueDate:any;
 }

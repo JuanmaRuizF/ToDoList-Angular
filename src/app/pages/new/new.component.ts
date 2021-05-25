@@ -42,6 +42,7 @@ export class NewComponent implements OnInit {
       var timestamp1 = Number(timestamp) + 3200;
       console.log(timestamp1);
 
+      this.taskList.value.datetimeDueDate  = timestamp1
       var date = new Date(timestamp1).toLocaleDateString();
 
       console.log(date);
@@ -66,7 +67,8 @@ export class NewComponent implements OnInit {
       taskDescription: ['', ],
       taskStatus: ['Pending'],
       taskStartDate: [this.tdate],
-      taskDueDate: ["",]
+      taskDueDate: ["",],
+      datetimeDueDate: ["",],
     });
   }
 }

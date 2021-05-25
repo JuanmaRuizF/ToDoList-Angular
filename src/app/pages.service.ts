@@ -26,7 +26,8 @@ export class PagesService {
     taskDescription:"",
     taskStatus:"",
     taskStartDate:"",
-    taskDueDate:""
+    taskDueDate:"",
+    datetimeDueDate:""
   }
 
   onDeleteTask(taskId:string): Promise<void>{
