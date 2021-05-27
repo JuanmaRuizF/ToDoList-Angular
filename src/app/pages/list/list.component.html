@@ -2,16 +2,16 @@
     <!-- Position Column -->
     <ng-container matColumnDef="taskName">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-        <td mat-cell *matCellDef="let element" [ngClass]="element.taskDueDate < this.date ? 'rojo' : ''"> {{element.taskName}} </td>
+        <td mat-cell *matCellDef="let element" [ngClass]="element.datetimeDueDate < this.date ? 'rojo' : ''"> {{element.taskName}} </td>
     </ng-container>
 
 
     <!-- Weight Column -->
     <ng-container matColumnDef="taskStatus">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
-        <td mat-cell *matCellDef="let element" [ngClass]="element.taskDueDate < this.date ? 'rojo' : ''">
+        <td mat-cell *matCellDef="let element" [ngClass]="element.datetimeDueDate < this.date ? 'rojo' : ''">
             <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-                <mat-button-toggle value="bold" (click)="editStatus(element)" [ngClass]="element.taskDueDate < this.date ? 'rojo' : ''">{{element.taskStatus}}</mat-button-toggle>
+                <mat-button-toggle value="bold" (click)="editStatus(element)" [ngClass]="element.datetimeDueDate < this.date ? 'rojo' : ''">{{element.taskStatus}}</mat-button-toggle>
             </mat-button-toggle-group>
 
         </td>
@@ -21,19 +21,19 @@
     <!-- Symbol Column -->
     <ng-container matColumnDef="taskStartDate">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </th>
-        <td mat-cell *matCellDef="let element" [ngClass]="element.taskDueDate < this.date ? 'rojo' : ''" style="word-break: normal; padding-right: 4px;"> {{element.taskStartDate}} </td>
+        <td mat-cell *matCellDef="let element" [ngClass]="element.datetimeDueDate < this.date ? 'rojo' : ''" style="word-break: normal; padding-right: 4px;"> {{element.taskStartDate}} </td>
     </ng-container>
 
 
     <!-- Name Column -->
     <ng-container matColumnDef="taskDueDate">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Due Date </th>
-        <td mat-cell *matCellDef="let element" [ngClass]="element.taskDueDate < this.date ? 'rojo' : ''" style="word-break: normal;"> {{element.taskDueDate}} </td>
+        <td mat-cell *matCellDef="let element" [ngClass]="element.datetimeDueDate < this.date ? 'rojo' : ''" style="word-break: normal;"> {{element.taskDueDate}} </td>
     </ng-container>
 
     <ng-container matColumnDef="Actions" class="td-status">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
-        <td mat-cell *matCellDef="let element" [ngClass]="element.taskDueDate < this.date ? 'rojo' : ''">
+        <td mat-cell *matCellDef="let element" [ngClass]="element.datetimeDueDate < this.date ? 'rojo' : ''">
             <mat-icon type="button" (click)="onGoToSee(element)" class="infoIcon">info</mat-icon>
             <mat-icon type="button" (click)="onGoToEdit(element) ">edit</mat-icon>
             <mat-icon type="button" (click)="onGoToDelete(element.id) " class="deleteIcon">delete</mat-icon>

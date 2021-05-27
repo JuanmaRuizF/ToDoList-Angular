@@ -23,7 +23,8 @@ import {MatIconModule} from '@angular/material/icon';
 export class ListComponent implements OnInit, AfterViewInit {
   show=false;
 
-  date = new Date().toLocaleDateString()
+  // date = new Date().toLocaleDateString()
+  date = new Date()
   displayedColumns: string[] = ['taskName', 'taskStatus', 'taskStartDate',  'taskDueDate', 'Actions'];
   dataSource = new MatTableDataSource();
 

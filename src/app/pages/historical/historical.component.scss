@@ -28,8 +28,10 @@ td {
     }
     td {
         font-size: xx-small;
-        padding-right: 2%;
-        // word-break: break-all;
+        padding-right: 1%;
+    }
+    .elementBreak {
+        word-break: break-word;
     }
 }
 
